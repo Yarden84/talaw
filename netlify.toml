@@ -1,0 +1,22 @@
+[build]
+  command = "npm run generate"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Enable Git Gateway for Netlify CMS
+[build.processing]
+  skip_processing = false
+
+# Redirect for admin
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Handle client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 

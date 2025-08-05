@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "About Page"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Professional Background Title", name: "backgroundTitle", widget: "string", default: "Professional Background" }
+          - { label: "First Paragraph", name: "firstParagraph", widget: "text" }
+          - { label: "Second Paragraph", name: "secondParagraph", widget: "text" }
+          - { label: "Years Experience", name: "yearsExperience", widget: "string", default: "15+ Years Experience" }
+          - { label: "Portrait Image", name: "portraitImage", widget: "image", default: "/lawyer-portrait.jpg" }
+          - { label: "Portrait Alt Text", name: "portraitAlt", widget: "string", default: "Revital Amir - Professional Attorney" } 
