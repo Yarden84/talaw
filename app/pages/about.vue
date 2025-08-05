@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <PageHeader 
-      :title="data?.title || 'About Revital Amir'"
-      :description="data?.description || 'Dedicated legal professional with extensive experience in protecting rights and interests.'"
+      :title="contentData?.title || 'About Revital Amir'"
+      :description="contentData?.description || 'Dedicated legal professional with extensive experience in protecting rights and interests.'"
     />
 
     <section class="py-24 bg-white min-h-screen">
@@ -10,22 +10,22 @@
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
             <div class="w-[50%] space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ data?.backgroundTitle || 'Professional Background' }}</h3>
+              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ contentData?.backgroundTitle || 'Professional Background' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
-                {{ data?.firstParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
+                {{ contentData?.firstParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
               <p class="text-gray-600 leading-relaxed text-lg">
-                {{ data?.secondParagraph || 'Our firm specializes in intellectual property protection, user rights advocacy, and estate planning services. We believe in building lasting relationships with our clients based on trust, transparency, and results.' }}
+                {{ contentData?.secondParagraph || 'Our firm specializes in intellectual property protection, user rights advocacy, and estate planning services. We believe in building lasting relationships with our clients based on trust, transparency, and results.' }}
               </p>
               <div class="flex items-center space-x-4 pt-4">
                 <div class="w-12 h-1 bg-teal-600"></div>
-                <span class="text-teal-600 font-semibold">{{ data?.yearsExperience || '15+ Years Experience' }}</span>
+                <span class="text-teal-600 font-semibold">{{ contentData?.yearsExperience || '15+ Years Experience' }}</span>
               </div>
             </div>
             <div class="w-[300px] border-[1px] border-gray-900 rounded-lg p-1">
               <img 
-                :src="data?.portraitImage || '/lawyer-portrait.jpg'" 
-                :alt="data?.portraitAlt || 'Revital Amir - Professional Attorney'" 
+                :src="contentData?.portraitImage || '/lawyer-portrait.jpg'" 
+                :alt="contentData?.portraitAlt || 'Revital Amir - Professional Attorney'" 
                 class="w-full border-[1px] border-gray-900 rounded-lg object-cover shadow-lg"
               />
             </div>
@@ -89,12 +89,23 @@
 </template>
 
 <script setup>
-const { data } = await useAsyncData('about', () => queryContent('/about').findOne())
+// Load content using our working API method
+const { data: apiResponse } = await useAsyncData('about-content', () => 
+  $fetch('/api/about-content')
+)
+
+// Extract content data from API response
+const contentData = computed(() => {
+  if (apiResponse.value?.success && apiResponse.value?.content) {
+    return apiResponse.value.content
+  }
+  return null
+})
 
 useHead({
-  title: `${data.value?.title || 'About Revital Amir'} - Professional Attorney`,
+  title: `${contentData.value?.title || 'About Revital Amir'} - Professional Attorney`,
   meta: [
-    { name: 'description', content: data.value?.description || 'Learn about Revital Amir, a dedicated legal professional with 15+ years of experience in intellectual property protection, user rights, and estate planning.' }
+    { name: 'description', content: contentData.value?.description || 'Learn about Revital Amir, a dedicated legal professional with 15+ years of experience in intellectual property protection, user rights, and estate planning.' }
   ]
 })
 </script> 

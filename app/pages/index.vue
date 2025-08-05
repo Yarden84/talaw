@@ -46,15 +46,14 @@
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
             <div class="w-[50%] space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">About Revital Amir</h3>
+              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ aboutContent?.backgroundTitle || 'About Revital Amir' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam adipisci iusto, quos ut, quibusdam voluptas impedit excepturi beatae repellat magni nam, aliquid minima recusandae. Maiores, officiis unde? Facilis maxime corrupti consectetur itaque totam, sapiente laudantium quas minus placeat voluptatibus officia saepe molestiae provident, dolore hic vitae illum distinctio quam officiis pariatur, repudiandae minima doloribus! Adipisci ratione sint ad aliquid vitae.
+                {{ aboutContent?.firstParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
               <p class="text-gray-600 leading-relaxed text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique iste, culpa impedit saepe placeat neque minima eaque doloremque natus dolorem sequi dignissimos repudiandae reprehenderit soluta.
+                {{ aboutContent?.secondParagraph || 'Our firm specializes in intellectual property protection, user rights advocacy, and estate planning services. We believe in building lasting relationships with our clients based on trust, transparency, and results.' }}
               </p>
               <NuxtLink to="/about" class="flex items-center space-x-4 pt-4">
-                <!-- <div class="w-12 h-1 bg-teal-600"></div> -->
                     <span class="text-teal-600 font-semibold">Read More</span>
                     <svg class="w-5 hs-5 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -63,8 +62,8 @@
             </div>
                 <div class="w-[300px] border-[1px] border-gray-900 rounded-lg p-1">
                     <img 
-                        src="/lawyer-portrait.jpg" 
-                        alt="Revital Amir - Professional Attorney" 
+                        :src="aboutContent?.portraitImage || '/lawyer-portrait.jpg'" 
+                        :alt="aboutContent?.portraitAlt || 'Revital Amir - Professional Attorney'" 
                         class="w-full border-[1px] border-gray-900 rounded-lg object-cover rounded-lg shadow-lg"
                     />
                 </div>
@@ -125,6 +124,17 @@
 </template>
 
 <script setup>
+const { data: apiResponse } = await useAsyncData('home-about-content', () => 
+  $fetch('/api/about-content')
+)
+
+const aboutContent = computed(() => {
+  if (apiResponse.value?.success && apiResponse.value?.content) {
+    return apiResponse.value.content
+  }
+  return null
+})
+
 useHead({
   title: 'Revital Amir Law - Protecting Your Legal Interests',
   meta: [
