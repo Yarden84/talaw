@@ -21,13 +21,13 @@
           >
             <img 
               v-if="isScrolled"
-              src="../../art-logo.svg" 
+              src="/art-logo.svg" 
               alt="Revital Amir Law Logo" 
               class="w-[150px] h-auto"
             />
             <img 
               v-else
-              src="../../art-logo-white.svg" 
+              src="/art-logo-white.svg" 
               alt="Revital Amir Law Logo" 
               class="w-[150px] h-auto"
             />

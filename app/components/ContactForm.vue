@@ -5,13 +5,27 @@
         <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-4">Get In Touch</h2>
         <p class="text-lg text-gray-600 text-center mb-12">Ready to discuss your legal needs? Contact us today for a consultation.</p>
         
-        <form @submit.prevent="handleSubmit" class="bg-white rounded-lg shadow-lg p-8">
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true" 
+          netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit" 
+          class="bg-white rounded-lg shadow-lg p-8"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <div style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </div>
+
           <div class="grid md:grid-cols-2 gap-6 mb-6">
             <div>
               <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
               <input 
                 type="text" 
                 id="firstName" 
+                name="firstName"
                 v-model="form.firstName"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
@@ -23,6 +37,7 @@
               <input 
                 type="text" 
                 id="lastName" 
+                name="lastName"
                 v-model="form.lastName"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
@@ -37,6 +52,7 @@
               <input 
                 type="email" 
                 id="email" 
+                name="email"
                 v-model="form.email"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
@@ -48,6 +64,7 @@
               <input 
                 type="tel" 
                 id="phone" 
+                name="phone"
                 v-model="form.phone"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
                 placeholder="Enter your phone number"
@@ -59,6 +76,7 @@
             <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Needed</label>
             <select 
               id="service" 
+              name="service"
               v-model="form.service"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
             >
@@ -74,6 +92,7 @@
             <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
             <textarea 
               id="message" 
+              name="message"
               v-model="form.message"
               required
               rows="5"
@@ -109,28 +128,40 @@ const form = ref({
 
 const isSubmitting = ref(false)
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const handleSubmit = async () => {
   isSubmitting.value = true
   
-  // Simulate form submission
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  
-  // Here you would typically send the form data to your backend
-  console.log('Form submitted:', form.value)
-  
-  // Reset form
-  form.value = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+  try {
+    await $fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...form.value
+      })
+    })
+    
+    form.value = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    }
+    
+    alert('Thank you for your message. We will get back to you soon!')
+  } catch (error) {
+    console.error('Form submission error:', error)
+    alert('There was an error sending your message. Please try again.')
+  } finally {
+    isSubmitting.value = false
   }
-  
-  isSubmitting.value = false
-  
-  // Show success message (you can implement this as needed)
-  alert('Thank you for your message. We will get back to you soon!')
 }
 </script> 
