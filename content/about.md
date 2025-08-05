@@ -10,7 +10,7 @@ firstParagraph: Revital Amir is a dedicated legal professional with extensive
   unique needs.
 secondParagraph: I specialize in intellectual property protection, user rights
   advocacy, and estate planning services. I believe in building lasting
-  relationships with my clients based on trust, transparency, and results2.
+  relationships with my clients based on trust, transparency, and results.
 yearsExperience: 15+ Years Experience
 portraitImage: /lawyer-portrait.jpg
 portraitAlt: Revital Amir - Professional Attorney
