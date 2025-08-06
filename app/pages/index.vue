@@ -15,15 +15,15 @@
           <div class="space-y-10 text-white">
             <div class="space-y-6">
               <h1 class="text-8xl tracking-[0.10em] md:text-6xl font-display leading-tight">
-                Revital Amir Law
+                {{ homeContent?.title || 'Revital Amir Law' }}
               </h1>
               <p class="text-xl text-gray-300 tracking-[0.05em]">
-                in Professional Legal Services
+                {{ homeContent?.subtitle || 'in Professional Legal Services' }}
               </p>
             </div>
             
             <p class="text-lg text-gray-300 leading-relaxed max-w-lg tracking-[0.05em] leading-12">
-              Revital Amir represents creators, users, and individuals in intellectual property protection, legal guidance, and estate planning. Our cases involve creators protection, users protection, power of attorney, and comprehensive legal solutions tailored to your unique needs.
+              {{ homeContent?.description || 'Revital Amir represents creators, users, and individuals in intellectual property protection, legal guidance, and estate planning. Our cases involve creators protection, users protection, power of attorney, and comprehensive legal solutions tailored to your unique needs.' }}
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4">
@@ -48,10 +48,7 @@
             <div class="w-[50%] space-y-6">
               <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ aboutContent?.backgroundTitle || 'About Revital Amir' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
-                {{ aboutContent?.firstParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
-              </p>
-              <p class="text-gray-600 leading-relaxed text-lg">
-                {{ aboutContent?.secondParagraph || 'Our firm specializes in intellectual property protection, user rights advocacy, and estate planning services. We believe in building lasting relationships with our clients based on trust, transparency, and results.' }}
+                {{ aboutContent?.mainParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
               <NuxtLink to="/about" class="flex items-center space-x-4 pt-4">
                     <span class="text-teal-600 font-semibold">Read More</span>
@@ -117,28 +114,46 @@
         </div>
       </div>
     </section>
-
-    <ContactForm />
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-4">Get In Touch</h2>
+          <p class="text-lg text-gray-600 text-center mb-12">Ready to discuss your legal needs? Contact us today for a consultation.</p>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
     <Footer />
   </div>
 </template>
 
 <script setup>
-const { data: apiResponse } = await useAsyncData('home-about-content', () => 
+const { data: homeApiResponse } = await useAsyncData('home-content', () => 
+  $fetch('/api/home-content')
+)
+
+const { data: aboutApiResponse } = await useAsyncData('home-about-content', () => 
   $fetch('/api/about-content')
 )
 
+const homeContent = computed(() => {
+  if (homeApiResponse.value?.success && homeApiResponse.value?.content) {
+    return homeApiResponse.value.content
+  }
+  return null
+})
+
 const aboutContent = computed(() => {
-  if (apiResponse.value?.success && apiResponse.value?.content) {
-    return apiResponse.value.content
+  if (aboutApiResponse.value?.success && aboutApiResponse.value?.content) {
+    return aboutApiResponse.value.content
   }
   return null
 })
 
 useHead({
-  title: 'Revital Amir Law - Protecting Your Legal Interests',
+  title: `${homeContent.value?.title || 'Revital Amir Law'} - Protecting Your Legal Interests`,
   meta: [
-    { name: 'description', content: 'Professional legal services for creators, users, and individuals. Expert attorney Revital Amir ready to protect your legal interests.' }
+    { name: 'description', content: homeContent.value?.description || 'Professional legal services for creators, users, and individuals. Expert attorney Revital Amir ready to protect your legal interests.' }
   ]
 })
 </script> 

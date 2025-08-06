@@ -9,15 +9,100 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Description Text", name: "description", widget: "text" }
       - name: "about"
         label: "About Page"
         file: "content/about.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
-          - { label: "Professional Background Title", name: "backgroundTitle", widget: "string", default: "Professional Background" }
-          - { label: "First Paragraph", name: "firstParagraph", widget: "text" }
-          - { label: "Second Paragraph", name: "secondParagraph", widget: "text" }
-          - { label: "Years Experience", name: "yearsExperience", widget: "string", default: "15+ Years Experience" }
+          - { label: "Background Title", name: "backgroundTitle", widget: "string", default: "Professional Background" }
+          - { label: "Main Paragraph", name: "mainParagraph", widget: "text" }
           - { label: "Portrait Image", name: "portraitImage", widget: "image", default: "/lawyer-portrait.jpg" }
-          - { label: "Portrait Alt Text", name: "portraitAlt", widget: "string", default: "Revital Amir - Professional Attorney" } 
+          - { label: "Portrait Alt Text", name: "portraitAlt", widget: "string", default: "Revital Amir - Professional Attorney" }
+          - { label: "Education & Experience Section Title", name: "educationSectionTitle", widget: "string", default: "Education & Experience" }
+          - label: "Education"
+            name: "education"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string", default: "Education" }
+              - label: "Degrees"
+                name: "degrees"
+                widget: "list"
+                fields:
+                  - { label: "Degree", name: "degree", widget: "string" }
+                  - { label: "Institution", name: "institution", widget: "string" }
+                  - { label: "Year", name: "year", widget: "string" }
+          - label: "Professional Experience"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string", default: "Professional Experience" }
+              - label: "Areas of Practice"
+                name: "areasOfPractice"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", default: "Areas of Practice" }
+                  - label: "Areas"
+                    name: "areas"
+                    widget: "list"
+                    field: { label: "Area", name: "area", widget: "string" }
+              - label: "Professional Memberships"
+                name: "memberships"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", default: "Professional Memberships" }
+                  - label: "Organizations"
+                    name: "organizations"
+                    widget: "list"
+                    field: { label: "Organization", name: "organization", widget: "string" }
+      - name: "creators-protection"
+        label: "Creators Protection"
+        file: "content/creators-protection.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Office Vision", name: "officeVision", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            field: { label: "Service", name: "service", widget: "string" }
+      - name: "users-protection"
+        label: "Users Protection"
+        file: "content/users-protection.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Office Vision", name: "officeVision", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            field: { label: "Service", name: "service", widget: "string" }
+      - name: "power-of-attorney"
+        label: "Power of Attorney"
+        file: "content/power-of-attorney.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Office Vision", name: "officeVision", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            field: { label: "Service", name: "service", widget: "string" }
+      - name: "contact"
+        label: "Contact Page"
+        file: "content/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Get In Touch Title", name: "getInTouchTitle", widget: "string", default: "Get In Touch" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Office Address", name: "officeAddress", widget: "text" }
+          - { label: "Office Hours", name: "officeHours", widget: "text" } 

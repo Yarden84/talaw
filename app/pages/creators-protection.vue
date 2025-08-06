@@ -1,32 +1,35 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <PageHeader 
-      title="Creators Protection"
-      description="Comprehensive legal protection for content creators, artists, and intellectual property owners."
+      :title="contentData?.title || 'Creators Protection'"
+      :description="contentData?.description || 'Comprehensive legal protection for content creators, artists, and intellectual property owners.'"
     />
 
-    <!-- Page Content -->
-    <section class="py-16 bg-white min-h-screen">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">Coming Soon</h2>
-          <p class="text-lg text-gray-600 text-center">
-            Detailed information about our creators protection services will be available soon.
-          </p>
-        </div>
-      </div>
-    </section>
+    <PageContent 
+      :office-vision="contentData?.officeVision || 'Our office is dedicated to protecting the creative rights and intellectual property of artists, writers, musicians, and digital content creators. We understand the unique challenges faced by creative professionals in today\'s digital landscape and provide tailored legal solutions to safeguard your creative works and business interests.'"
+      :services="contentData?.services || []"
+    />
 
-    <!-- Footer -->
     <Footer />
   </div>
 </template>
 
 <script setup>
+const { data: apiResponse } = await useAsyncData('creators-protection-content', () => 
+  $fetch('/api/creators-protection-content')
+)
+
+const contentData = computed(() => {
+  if (apiResponse.value?.success && apiResponse.value?.content) {
+    return apiResponse.value.content
+  }
+  return null
+})
+
 useHead({
-  title: 'Creators Protection - Revital Amir Law',
+  title: `${contentData.value?.title || 'Creators Protection'} - Revital Amir Law`,
   meta: [
-    { name: 'description', content: 'Comprehensive legal protection for content creators, artists, and intellectual property owners. Expert legal services by Revital Amir.' }
+    { name: 'description', content: contentData.value?.description || 'Comprehensive legal protection for content creators, artists, and intellectual property owners. Expert legal services by Revital Amir.' }
   ]
 })
 </script> 
