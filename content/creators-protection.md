@@ -8,7 +8,7 @@ officeVision: Our office is dedicated to protecting the creative rights and
   in today's digital landscape and provide tailored legal solutions to safeguard
   your creative works and business interests.
 services:
-  - Copyright Registration and Protection1
+  - Copyright Registration and Protection
   - Trademark Applications and Enforcement
   - Digital Content Licensing Agreements
   - Creator Contract Review and Negotiation
