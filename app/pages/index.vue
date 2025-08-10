@@ -1,8 +1,13 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <section class="relative min-h-screen flex items-center">
-      <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900 to-transparent z-10"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-1/2 z-0">
+      <div :class="[
+        'absolute inset-0 z-10', 
+        languageState.currentLanguage === 'he' 
+          ? 'bg-gradient-to-l from-gray-900 via-gray-900 to-transparent' 
+          : 'bg-gradient-to-r from-gray-900 via-gray-900 to-transparent'
+      ]"></div>
+      <div :class="['absolute top-0 bottom-0 w-1/2 z-0', languageState.currentLanguage === 'he' ? 'left-0' : 'right-0']">
         <img 
           src="https://images.unsplash.com/photo-1589216532372-1c2a367900d9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
           alt="Law Office Background" 
@@ -123,7 +128,7 @@
 </template>
 
 <script setup>
-import { getLocalizedContent } from '../stores/language.js'
+import { languageState,getLocalizedContent } from '../stores/language.js'
 
 const { data: homeApiResponse } = await useAsyncData('home-content', () => 
   $fetch('/api/home-content')
