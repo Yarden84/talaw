@@ -8,8 +8,10 @@
     ]"
   >
     <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-        <div class="flex items-center">
+      <div :class="['flex justify-between items-center py-4', 
+        languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row'
+      ]">
+        <div :class="['flex items-center', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
           <NuxtLink 
             to="/" 
             :class="[
@@ -37,7 +39,7 @@
           </NuxtLink>
         </div>
 
-        <div class="hidden md:flex items-center space-x-8">
+        <div :class="['hidden md:flex items-center space-x-8', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
           <NuxtLink 
             v-for="link in navLinks"
             :key="link.path"
@@ -55,7 +57,36 @@
           </NuxtLink>
         </div>
 
-        <div class="hidden md:block">
+        <div :class="['hidden md:flex items-center space-x-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
+          <div :class="['flex items-center space-x-2 border rounded-lg p-1', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row', isScrolled ? 'border-gray-300' : 'border-white/30']">
+            <button
+              @click="setLanguage('en')"
+              :class="[
+                'px-3 py-1 rounded text-sm font-medium transition duration-300',
+                languageState.currentLanguage === 'en' 
+                  ? 'bg-teal-600 text-white' 
+                  : isScrolled 
+                    ? 'text-gray-600 hover:text-teal-600' 
+                    : 'text-white hover:text-teal-300'
+              ]"
+            >
+              EN
+            </button>
+            <button
+              @click="setLanguage('he')"
+              :class="[
+                'px-3 py-1 rounded text-sm font-medium transition duration-300',
+                languageState.currentLanguage === 'he' 
+                  ? 'bg-teal-600 text-white' 
+                  : isScrolled 
+                    ? 'text-gray-600 hover:text-teal-600' 
+                    : 'text-white hover:text-teal-300'
+              ]"
+            >
+              עב
+            </button>
+          </div>
+          
           <button 
             :class="[
               'font-bold py-2 px-6 rounded-lg transition duration-300',
@@ -95,7 +126,7 @@
             : 'border-white/20 bg-gray-900/90'
         ]"
       >
-        <div class="flex flex-col space-y-4">
+        <div :class="['flex flex-col space-y-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
           <NuxtLink 
             v-for="link in navLinks"
             :key="`mobile-${link.path}`"
@@ -112,6 +143,36 @@
           >
             {{ link.name }}
           </NuxtLink>
+          
+          <div :class="['flex items-center justify-center space-x-2 border rounded-lg p-1 mx-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row', isScrolled ? 'border-gray-300' : 'border-white/30']">
+            <button
+              @click="setLanguage('en')"
+              :class="[
+                'px-3 py-1 rounded text-sm font-medium transition duration-300',
+                languageState.currentLanguage === 'en' 
+                  ? 'bg-teal-600 text-white' 
+                  : isScrolled 
+                    ? 'text-gray-600 hover:text-teal-600' 
+                    : 'text-white hover:text-teal-300'
+              ]"
+            >
+              EN
+            </button>
+            <button
+              @click="setLanguage('he')"
+              :class="[
+                'px-3 py-1 rounded text-sm font-medium transition duration-300',
+                languageState.currentLanguage === 'he' 
+                  ? 'bg-teal-600 text-white' 
+                  : isScrolled 
+                    ? 'text-gray-600 hover:text-teal-600' 
+                    : 'text-white hover:text-teal-300'
+              ]"
+            >
+              עב
+            </button>
+          </div>
+          
           <button 
             :class="[
               'font-bold py-2 px-6 rounded-lg transition duration-300 w-full',
@@ -129,6 +190,8 @@
 </template>
 
 <script setup>
+import { languageState, setLanguage, initLanguage } from '../../stores/language.js'
+
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const logoError = ref(false)
@@ -146,6 +209,8 @@ const navLinks = [
 const currentPath = ref('/')
 
 onMounted(() => {
+  initLanguage()
+  
   const route = useRoute()
   currentPath.value = route.path
   

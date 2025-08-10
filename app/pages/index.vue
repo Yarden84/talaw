@@ -15,15 +15,15 @@
           <div class="space-y-10 text-white">
             <div class="space-y-6">
               <h1 class="text-8xl tracking-[0.10em] md:text-6xl font-display leading-tight">
-                {{ homeContent?.title || 'Revital Amir Law' }}
+                {{ getLocalizedContent(homeContent, 'title') || 'Revital Amir Law' }}
               </h1>
               <p class="text-xl text-gray-300 tracking-[0.05em]">
-                {{ homeContent?.subtitle || 'in Professional Legal Services' }}
+                {{ getLocalizedContent(homeContent, 'subtitle') || 'in Professional Legal Services' }}
               </p>
             </div>
             
             <p class="text-lg text-gray-300 leading-relaxed max-w-lg tracking-[0.05em] leading-12">
-              {{ homeContent?.description || 'Revital Amir represents creators, users, and individuals in intellectual property protection, legal guidance, and estate planning. Our cases involve creators protection, users protection, power of attorney, and comprehensive legal solutions tailored to your unique needs.' }}
+              {{ getLocalizedContent(homeContent, 'description') || 'Revital Amir represents creators, users, and individuals in intellectual property protection, legal guidance, and estate planning. Our cases involve creators protection, users protection, power of attorney, and comprehensive legal solutions tailored to your unique needs.' }}
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4">
@@ -46,9 +46,9 @@
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
             <div class="w-[50%] space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ aboutContent?.backgroundTitle || 'About Revital Amir' }}</h3>
+              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ getLocalizedContent(aboutContent, 'backgroundTitle') || 'About Revital Amir' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
-                {{ aboutContent?.mainParagraph || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
+                {{ getLocalizedContent(aboutContent, 'mainParagraph') || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
               <NuxtLink to="/about" class="flex items-center space-x-4 pt-4">
                     <span class="text-teal-600 font-semibold">Read More</span>
@@ -60,7 +60,7 @@
                 <div class="w-[300px] border-[1px] border-gray-900 rounded-lg p-1">
                     <img 
                         :src="aboutContent?.portraitImage || '/lawyer-portrait.jpg'" 
-                        :alt="aboutContent?.portraitAlt || 'Revital Amir - Professional Attorney'" 
+                        :alt="getLocalizedContent(aboutContent, 'portraitAlt') || 'Revital Amir - Professional Attorney'" 
                         class="w-full border-[1px] border-gray-900 rounded-lg object-cover rounded-lg shadow-lg"
                     />
                 </div>
@@ -114,20 +114,17 @@
         </div>
       </div>
     </section>
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-4">Get In Touch</h2>
-          <p class="text-lg text-gray-600 text-center mb-12">Ready to discuss your legal needs? Contact us today for a consultation.</p>
-          <ContactForm />
-        </div>
-      </div>
+
+    <section class="max-w-[1000px] mx-auto my-8">
+      <ContactForm />
     </section>
     <Footer />
   </div>
 </template>
 
 <script setup>
+import { getLocalizedContent } from '../stores/language.js'
+
 const { data: homeApiResponse } = await useAsyncData('home-content', () => 
   $fetch('/api/home-content')
 )
@@ -151,9 +148,9 @@ const aboutContent = computed(() => {
 })
 
 useHead({
-  title: `${homeContent.value?.title || 'Revital Amir Law'} - Protecting Your Legal Interests`,
+  title: `${getLocalizedContent(homeContent.value, 'title') || 'Revital Amir Law'} - Protecting Your Legal Interests`,
   meta: [
-    { name: 'description', content: homeContent.value?.description || 'Professional legal services for creators, users, and individuals. Expert attorney Revital Amir ready to protect your legal interests.' }
+    { name: 'description', content: getLocalizedContent(homeContent.value, 'description') || 'Professional legal services for creators, users, and individuals. Expert attorney Revital Amir ready to protect your legal interests.' }
   ]
 })
 </script> 
