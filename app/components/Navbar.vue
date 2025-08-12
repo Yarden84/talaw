@@ -38,7 +38,7 @@
           </NuxtLink>
         </div>
 
-        <div :class="['hidden md:flex items-center', languageState.currentLanguage === 'he' ? 'space-x-reverse space-x-8' : 'space-x-8']">
+        <div :class="['hidden md:flex items-center', languageState.currentLanguage === 'he' ? 'space-x-reverse space-x-12' : 'space-x-8']">
           <NuxtLink 
             v-for="link in navLinks"
             :key="link.path"
@@ -119,14 +119,12 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <div 
       v-if="isMobileMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
       @click="isMobileMenuOpen = false"
     ></div>
 
-    <!-- Mobile Menu Panel -->
     <div 
       :class="[
         'fixed top-0 right-0 h-full w-full bg-white z-40 md:hidden transform transition-transform duration-300 ease-in-out',

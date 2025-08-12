@@ -16,7 +16,7 @@
       </div>
       
       <div class="max-w-[1200px] mx-auto px-4 relative z-20">
-        <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen py-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen py-16 lg:py-36 md:py-16">
           <div class="space-y-10 text-white opacity-0 animate-fade-in">
             <div class="space-y-6">
               <h1 :class="['text-6xl tracking-[0.10em] md:text-6xl leading-tight', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
