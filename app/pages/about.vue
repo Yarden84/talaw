@@ -5,7 +5,7 @@
       :description="getLocalizedContent(contentData, 'description') || 'Dedicated legal professional with extensive experience in protecting rights and interests.'"
     />
 
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white opacity-0 translate-y-8 animate-section" ref="profileSection">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
           <div class="flex flex-col md:flex-row md:gap-32 gap-8 items-center">
@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50 opacity-0 translate-y-8 animate-section" ref="experienceSection">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
           <h2 :class="['text-3xl font-bold text-center text-gray-900 mb-12', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
@@ -110,6 +110,27 @@ const contentData = computed(() => {
   return null
 })
 
+const profileSection = ref(null)
+const experienceSection = ref(null)
+
+onMounted(() => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-visible')
+      }
+    })
+  }, observerOptions)
+
+  if (profileSection.value) observer.observe(profileSection.value)
+  if (experienceSection.value) observer.observe(experienceSection.value)
+})
+
 const getLocalizedAreas = (areasData) => {
   if (!areasData) return null
   return areasData[`areas_${languageState.currentLanguage}`] || areasData.areas || null
@@ -153,4 +174,15 @@ useHead({
     { name: 'description', content: getLocalizedContent(contentData.value, 'description') || 'Learn about Revital Amir, a dedicated legal professional with 15+ years of experience in intellectual property protection, user rights, and estate planning.' }
   ]
 })
-</script> 
+</script>
+
+<style scoped>
+.animate-section {
+  transition: all 0.8s ease-out;
+}
+
+.animate-section.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style> 

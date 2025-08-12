@@ -17,7 +17,7 @@
       
       <div class="max-w-[1200px] mx-auto px-4 relative z-20">
         <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen py-16">
-          <div class="space-y-10 text-white">
+          <div class="space-y-10 text-white opacity-0 animate-fade-in">
             <div class="space-y-6">
               <h1 :class="['text-6xl tracking-[0.10em] md:text-6xl leading-tight', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
                 {{ getLocalizedContent(homeContent, 'title') || 'Revital Amir Law' }}
@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <section class="py-24 bg-gray-100">
+    <section class="py-24 bg-gray-100 opacity-0 translate-y-8 animate-section" ref="aboutSection">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
           <div class="flex flex-col md:flex-row md:gap-32 gap-8 items-center">
@@ -76,7 +76,7 @@
       </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50 opacity-0 translate-y-8 animate-section" ref="servicesSection">
       <div class="container mx-auto px-4">
         <h2 :class="['text-3xl font-bold text-center text-gray-900 mb-12', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
           {{ getLocalizedContent(homeContent, 'servicesTitle') || 'Our Legal Services' }}
@@ -111,7 +111,7 @@
       </div>
     </section>
 
-    <section class="max-w-[1000px] mx-auto my-8">
+    <section class="max-w-[1000px] mx-auto my-8 opacity-0 translate-y-8 animate-section" ref="contactSection">
       <ContactForm />
     </section>
     <Footer />
@@ -141,6 +141,29 @@ const aboutContent = computed(() => {
     return aboutApiResponse.value.content
   }
   return null
+})
+
+const aboutSection = ref(null)
+const servicesSection = ref(null)
+const contactSection = ref(null)
+
+onMounted(() => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-visible')
+      }
+    })
+  }, observerOptions)
+
+  if (aboutSection.value) observer.observe(aboutSection.value)
+  if (servicesSection.value) observer.observe(servicesSection.value)
+  if (contactSection.value) observer.observe(contactSection.value)
 })
 
 const defaultServices = [
@@ -176,4 +199,28 @@ useHead({
     { name: 'description', content: getLocalizedContent(homeContent.value, 'description') || 'Professional legal services for creators, users, and individuals. Expert attorney Revital Amir ready to protect your legal interests.' }
   ]
 })
-</script> 
+</script>
+
+<style scoped>
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out 0.3s forwards;
+}
+
+.animate-section {
+  transition: all 0.8s ease-out;
+}
+
+.animate-section.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style> 

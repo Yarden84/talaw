@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "pages"
@@ -13,12 +13,12 @@ collections:
         label: "Home Page"
         file: "content/home.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Subtitle (English)", name: "subtitle_en", widget: "string" }
-          - { label: "Subtitle (Hebrew)", name: "subtitle_he", widget: "string" }
-          - { label: "Description Text (English)", name: "description_en", widget: "text" }
-          - { label: "Description Text (Hebrew)", name: "description_he", widget: "text" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Revital Amir Law" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "משרד עורכי דין רויטל עמיר" }
+          - { label: "Subtitle (English)", name: "subtitle_en", widget: "string", default: "Professional Legal Services" }
+          - { label: "Subtitle (Hebrew)", name: "subtitle_he", widget: "string", default: "שירותים משפטיים מקצועיים" }
+          - { label: "Description (English)", name: "description_en", widget: "text" }
+          - { label: "Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Services Section Title (English)", name: "servicesTitle_en", widget: "string", default: "Our Legal Services" }
           - { label: "Services Section Title (Hebrew)", name: "servicesTitle_he", widget: "string", default: "השירותים המשפטיים שלנו" }
           - label: "Services"
@@ -31,29 +31,30 @@ collections:
               - { label: "Service Description (Hebrew)", name: "description_he", widget: "text" }
               - { label: "Service Link", name: "link", widget: "string" }
               - { label: "Service Icon", name: "icon", widget: "select", options: ["creators", "users", "attorney"] }
+
       - name: "about"
         label: "About Page"
         file: "content/about.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Description (English)", name: "description_en", widget: "string" }
-          - { label: "Description (Hebrew)", name: "description_he", widget: "string" }
-          - { label: "Background Title (English)", name: "backgroundTitle_en", widget: "string", default: "Professional Background" }
-          - { label: "Background Title (Hebrew)", name: "backgroundTitle_he", widget: "string", default: "רקע מקצועי" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "About Revital Amir" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "אודות רויטל עמיר" }
+          - { label: "Page Description (English)", name: "description_en", widget: "string" }
+          - { label: "Page Description (Hebrew)", name: "description_he", widget: "string" }
+          - { label: "Background Section Title (English)", name: "backgroundTitle_en", widget: "string", default: "Professional Background" }
+          - { label: "Background Section Title (Hebrew)", name: "backgroundTitle_he", widget: "string", default: "רקע מקצועי" }
           - { label: "Main Paragraph (English)", name: "mainParagraph_en", widget: "text" }
           - { label: "Main Paragraph (Hebrew)", name: "mainParagraph_he", widget: "text" }
           - { label: "Portrait Image", name: "portraitImage", widget: "image", default: "/lawyer-portrait.jpg" }
           - { label: "Portrait Alt Text (English)", name: "portraitAlt_en", widget: "string", default: "Revital Amir - Professional Attorney" }
-          - { label: "Portrait Alt Text (Hebrew)", name: "portraitAlt_he", widget: "string", default: "רויטל אמיר - עורכת דין מקצועית" }
-          - { label: "Education & Experience Section Title (English)", name: "educationSectionTitle_en", widget: "string", default: "Education & Experience" }
-          - { label: "Education & Experience Section Title (Hebrew)", name: "educationSectionTitle_he", widget: "string", default: "השכלה וניסיון" }
+          - { label: "Portrait Alt Text (Hebrew)", name: "portraitAlt_he", widget: "string", default: "רויטל עמיר - עורכת דין מקצועית" }
+          - { label: "Education Section Title (English)", name: "educationSectionTitle_en", widget: "string", default: "Education & Experience" }
+          - { label: "Education Section Title (Hebrew)", name: "educationSectionTitle_he", widget: "string", default: "השכלה וניסיון" }
           - label: "Education"
             name: "education"
             widget: "object"
             fields:
-              - { label: "Section Title (English)", name: "title_en", widget: "string", default: "Education" }
-              - { label: "Section Title (Hebrew)", name: "title_he", widget: "string", default: "השכלה" }
+              - { label: "Title (English)", name: "title_en", widget: "string", default: "Education" }
+              - { label: "Title (Hebrew)", name: "title_he", widget: "string", default: "השכלה" }
               - label: "Degrees"
                 name: "degrees"
                 widget: "list"
@@ -63,105 +64,89 @@ collections:
                   - { label: "Institution (English)", name: "institution_en", widget: "string" }
                   - { label: "Institution (Hebrew)", name: "institution_he", widget: "string" }
                   - { label: "Year", name: "year", widget: "string" }
-          - label: "Professional Experience"
+          - label: "Experience"
             name: "experience"
             widget: "object"
             fields:
-              - { label: "Section Title (English)", name: "title_en", widget: "string", default: "Professional Experience" }
-              - { label: "Section Title (Hebrew)", name: "title_he", widget: "string", default: "ניסיון מקצועי" }
+              - { label: "Title (English)", name: "title_en", widget: "string", default: "Professional Experience" }
+              - { label: "Title (Hebrew)", name: "title_he", widget: "string", default: "ניסיון מקצועי" }
               - label: "Areas of Practice"
                 name: "areasOfPractice"
                 widget: "object"
                 fields:
                   - { label: "Title (English)", name: "title_en", widget: "string", default: "Areas of Practice" }
-                  - { label: "Title (Hebrew)", name: "title_he", widget: "string", default: "תחומי עיסוק" }
-                  - label: "Areas (English)"
-                    name: "areas_en"
-                    widget: "list"
-                    field: { label: "Area", name: "area", widget: "string" }
-                  - label: "Areas (Hebrew)"
-                    name: "areas_he"
-                    widget: "list"
-                    field: { label: "Area", name: "area", widget: "string" }
+                  - { label: "Title (Hebrew)", name: "title_he", widget: "string", default: "תחומי התמחות" }
+                  - { label: "Areas (English)", name: "areas_en", widget: "list", default: [] }
+                  - { label: "Areas (Hebrew)", name: "areas_he", widget: "list", default: [] }
               - label: "Professional Memberships"
                 name: "memberships"
                 widget: "object"
                 fields:
                   - { label: "Title (English)", name: "title_en", widget: "string", default: "Professional Memberships" }
                   - { label: "Title (Hebrew)", name: "title_he", widget: "string", default: "חברויות מקצועיות" }
-                  - label: "Organizations (English)"
-                    name: "organizations_en"
-                    widget: "list"
-                    field: { label: "Organization", name: "organization", widget: "string" }
-                  - label: "Organizations (Hebrew)"
-                    name: "organizations_he"
-                    widget: "list"
-                    field: { label: "Organization", name: "organization", widget: "string" }
+                  - { label: "Organizations (English)", name: "organizations_en", widget: "list", default: [] }
+                  - { label: "Organizations (Hebrew)", name: "organizations_he", widget: "list", default: [] }
+
       - name: "creators-protection"
-        label: "Creators Protection"
+        label: "Creators Protection Page"
         file: "content/creators-protection.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Description (English)", name: "description_en", widget: "string" }
-          - { label: "Description (Hebrew)", name: "description_he", widget: "string" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Creators Protection" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "הגנה על יוצרים" }
+          - { label: "Page Description (English)", name: "description_en", widget: "text" }
+          - { label: "Page Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Office Vision (English)", name: "officeVision_en", widget: "text" }
           - { label: "Office Vision (Hebrew)", name: "officeVision_he", widget: "text" }
-          - label: "Services (English)"
-            name: "services_en"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
-          - label: "Services (Hebrew)"
-            name: "services_he"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
+          - { label: "Services (English)", name: "services_en", widget: "list", default: [] }
+          - { label: "Services (Hebrew)", name: "services_he", widget: "list", default: [] }
+
       - name: "users-protection"
-        label: "Users Protection"
+        label: "Users Protection Page"
         file: "content/users-protection.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Description (English)", name: "description_en", widget: "string" }
-          - { label: "Description (Hebrew)", name: "description_he", widget: "string" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Users Protection" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "הגנה על משתמשים" }
+          - { label: "Page Description (English)", name: "description_en", widget: "text" }
+          - { label: "Page Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Office Vision (English)", name: "officeVision_en", widget: "text" }
           - { label: "Office Vision (Hebrew)", name: "officeVision_he", widget: "text" }
-          - label: "Services (English)"
-            name: "services_en"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
-          - label: "Services (Hebrew)"
-            name: "services_he"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
+          - { label: "Services (English)", name: "services_en", widget: "list", default: [] }
+          - { label: "Services (Hebrew)", name: "services_he", widget: "list", default: [] }
+
       - name: "power-of-attorney"
-        label: "Power of Attorney"
+        label: "Power of Attorney Page"
         file: "content/power-of-attorney.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Description (English)", name: "description_en", widget: "string" }
-          - { label: "Description (Hebrew)", name: "description_he", widget: "string" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Power of Attorney" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "ייפוי כוח" }
+          - { label: "Page Description (English)", name: "description_en", widget: "text" }
+          - { label: "Page Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Office Vision (English)", name: "officeVision_en", widget: "text" }
           - { label: "Office Vision (Hebrew)", name: "officeVision_he", widget: "text" }
-          - label: "Services (English)"
-            name: "services_en"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
-          - label: "Services (Hebrew)"
-            name: "services_he"
-            widget: "list"
-            field: { label: "Service", name: "service", widget: "string" }
+          - { label: "Services (English)", name: "services_en", widget: "list", default: [] }
+          - { label: "Services (Hebrew)", name: "services_he", widget: "list", default: [] }
+
       - name: "contact"
         label: "Contact Page"
         file: "content/contact.md"
         fields:
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - { label: "Title (Hebrew)", name: "title_he", widget: "string" }
-          - { label: "Description (English)", name: "description_en", widget: "string" }
-          - { label: "Description (Hebrew)", name: "description_he", widget: "string" }
+          - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Contact Us" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "צור קשר" }
+          - { label: "Page Description (English)", name: "description_en", widget: "text" }
+          - { label: "Page Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Get In Touch Title (English)", name: "getInTouchTitle_en", widget: "string", default: "Get In Touch" }
-          - { label: "Get In Touch Title (Hebrew)", name: "getInTouchTitle_he", widget: "string", default: "צור קשר" }
-          - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Office Address", name: "officeAddress", widget: "text" }
-          - { label: "Office Hours", name: "officeHours", widget: "text" } 
+          - { label: "Get In Touch Title (Hebrew)", name: "getInTouchTitle_he", widget: "string", default: "יצירת קשר" }
+          - { label: "Phone", name: "phone", widget: "string", default: "+1 (555) 123-4567" }
+          - { label: "Email", name: "email", widget: "string", default: "info@revitalamirlaw.com" }
+          - { label: "Office Address (English)", name: "officeAddress_en", widget: "text" }
+          - { label: "Office Address (Hebrew)", name: "officeAddress_he", widget: "text" }
+          - { label: "Office Hours (English)", name: "officeHours_en", widget: "text" }
+          - { label: "Office Hours (Hebrew)", name: "officeHours_he", widget: "text" }
+          - { label: "Phone Label (English)", name: "phoneLabel_en", widget: "string", default: "Phone" }
+          - { label: "Phone Label (Hebrew)", name: "phoneLabel_he", widget: "string", default: "טלפון" }
+          - { label: "Email Label (English)", name: "emailLabel_en", widget: "string", default: "Email" }
+          - { label: "Email Label (Hebrew)", name: "emailLabel_he", widget: "string", default: "דוא״ל" }
+          - { label: "Office Label (English)", name: "officeLabel_en", widget: "string", default: "Office" }
+          - { label: "Office Label (Hebrew)", name: "officeLabel_he", widget: "string", default: "משרד" }
+          - { label: "Office Hours Label (English)", name: "officeHoursLabel_en", widget: "string", default: "Office Hours" }
+          - { label: "Office Hours Label (Hebrew)", name: "officeHoursLabel_he", widget: "string", default: "שעות פעילות" } 

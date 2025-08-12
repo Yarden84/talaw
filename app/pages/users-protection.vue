@@ -5,10 +5,12 @@
       :description="getLocalizedContent(contentData, 'description') || 'Legal guidance and protection for individuals navigating complex legal situations.'"
     />
 
-    <PageContent 
-      :office-vision="getLocalizedContent(contentData, 'officeVision') || 'We are committed to protecting individual users\' rights in an increasingly complex digital and legal environment. Our practice focuses on empowering individuals with the knowledge and legal support they need to navigate personal legal challenges, privacy concerns, and consumer protection issues.'"
-      :services="getLocalizedServices(contentData) || []"
-    />
+    <div class="opacity-0 translate-y-8 animate-section" ref="contentSection">
+      <PageContent 
+        :office-vision="getLocalizedContent(contentData, 'officeVision') || 'We are committed to protecting individual users\' rights in an increasingly complex digital and legal environment. Our practice focuses on empowering individuals with the knowledge and legal support they need to navigate personal legal challenges, privacy concerns, and consumer protection issues.'"
+        :services="getLocalizedServices(contentData) || []"
+      />
+    </div>
 
     <Footer />
   </div>
@@ -28,6 +30,25 @@ const contentData = computed(() => {
   return null
 })
 
+const contentSection = ref(null)
+
+onMounted(() => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-visible')
+      }
+    })
+  }, observerOptions)
+
+  if (contentSection.value) observer.observe(contentSection.value)
+})
+
 const getLocalizedServices = (content) => {
   if (!content) return null
   const currentLang = languageState.currentLanguage
@@ -40,4 +61,15 @@ useHead({
     { name: 'description', content: getLocalizedContent(contentData.value, 'description') || 'Legal guidance and protection for individuals navigating complex legal situations. Expert legal services by Revital Amir.' }
   ]
 })
-</script> 
+</script>
+
+<style scoped>
+.animate-section {
+  transition: all 0.8s ease-out;
+}
+
+.animate-section.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style> 
