@@ -5,22 +5,24 @@
       :description="getLocalizedContent(contentData, 'description') || 'Dedicated legal professional with extensive experience in protecting rights and interests.'"
     />
 
-    <section class="py-24 bg-white min-h-screen">
+    <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
-          <div class="flex gap-32 items-center">
-            <div class="w-[50%] space-y-6">
+          <div class="flex flex-col md:flex-row md:gap-32 gap-8 items-center">
+            <div class="w-full md:w-[50%] space-y-6 order-2 md:order-1">
               <h3 :class="['text-2xl font-bold text-gray-900 mb-6', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">{{ getLocalizedContent(contentData, 'backgroundTitle') || 'Professional Background' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
                 {{ getLocalizedContent(contentData, 'mainParagraph') || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
             </div>
-            <div class="w-[300px] border-[1px] border-gray-900 rounded-lg p-1">
-              <img 
-                :src="contentData?.portraitImage || '/lawyer-portrait.jpg'" 
-                :alt="getLocalizedContent(contentData, 'portraitAlt') || 'Revital Amir - Professional Attorney'" 
-                class="w-full border-[1px] border-gray-900 rounded-lg object-cover shadow-lg"
-              />
+            <div class="w-full md:w-[300px] flex justify-center order-1 md:order-2">
+              <div class="w-[300px] border-[1px] border-gray-900 rounded-lg p-1">
+                <img 
+                  :src="contentData?.portraitImage || '/lawyer-portrait.jpg'" 
+                  :alt="getLocalizedContent(contentData, 'portraitAlt') || 'Revital Amir - Professional Attorney'" 
+                  class="w-full border-[1px] border-gray-900 rounded-lg object-cover shadow-lg"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-[400px] flex items-center justify-center">
+  <section class="relative h-[500px] md:h-[400px] flex items-center justify-center">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_1280.jpg')"></div>
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container mx-auto px-4 relative z-10">

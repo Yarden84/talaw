@@ -102,10 +102,12 @@
           <button 
             @click="isMobileMenuOpen = !isMobileMenuOpen"
             :class="[
-              'focus:outline-none transition duration-300',
-              isScrolled 
-                ? 'text-gray-700 hover:text-teal-600' 
-                : 'text-white hover:text-teal-300'
+              'focus:outline-none transition duration-300 z-50 relative',
+              !isMobileMenuOpen && isScrolled 
+                ? 'text-gray-700 hover:text-black' 
+                : !isMobileMenuOpen && !isScrolled
+                  ? 'text-white hover:text-gray-200'
+                  : 'text-black hover:text-gray-700'
             ]"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,73 +117,71 @@
           </button>
         </div>
       </div>
+    </div>
 
-      <div 
-        v-if="isMobileMenuOpen" 
-        :class="[
-          'md:hidden border-t py-4 transition-colors duration-300',
-          isScrolled 
-            ? 'border-gray-200 bg-white' 
-            : 'border-white/20 bg-gray-900/90'
-        ]"
-      >
-        <div :class="['flex flex-col space-y-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
+    <!-- Mobile Menu Overlay -->
+    <div 
+      v-if="isMobileMenuOpen"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+      @click="isMobileMenuOpen = false"
+    ></div>
+
+    <!-- Mobile Menu Panel -->
+    <div 
+      :class="[
+        'fixed top-0 right-0 h-full w-full bg-white z-40 md:hidden transform transition-transform duration-300 ease-in-out',
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      ]"
+    >
+      <div class="flex flex-col h-full pt-24 px-6">
+        <div class="flex flex-col space-y-6 items-center">
           <NuxtLink 
             v-for="link in navLinks"
             :key="`mobile-${link.path}`"
             :to="link.path" 
             @click="isMobileMenuOpen = false"
             :class="[
-              'font-medium transition duration-300',
-              isScrolled 
-                ? 'text-gray-700 hover:text-teal-600' 
-                : 'text-white hover:text-teal-300',
-              currentPath === link.path && isScrolled ? 'text-teal-600' : '',
-              currentPath === link.path && !isScrolled ? 'text-teal-300' : ''
+              'text-lg font-medium transition duration-300 text-gray-700 hover:text-teal-600',
+              currentPath === link.path ? 'text-teal-600 border-b-2 border-teal-600 pb-1' : ''
             ]"
           >
             {{ languageState.currentLanguage === 'he' ? link.name_he : link.name_en }}
           </NuxtLink>
-          
-          <div :class="['flex items-center justify-center space-x-2 border rounded-lg p-1 mx-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row', isScrolled ? 'border-gray-300' : 'border-white/30']">
-            <button
-              @click="setLanguage('en')"
-              :class="[
-                'px-3 py-1 rounded text-sm font-medium transition duration-300',
-                languageState.currentLanguage === 'en' 
-                  ? 'bg-teal-600 text-white' 
-                  : isScrolled 
-                    ? 'text-gray-600 hover:text-teal-600' 
-                    : 'text-white hover:text-teal-300'
-              ]"
+        </div>
+        
+        <div class="mt-8 space-y-4">
+          <div :class="['flex items-center gap-3', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
+            <div :class="['flex items-center space-x-2 border border-gray-300 rounded-lg p-1 flex-1', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
+              <button
+                @click="setLanguage('en')"
+                :class="[
+                  'px-3 py-1 rounded text-sm font-medium transition duration-300 flex-1',
+                  languageState.currentLanguage === 'en' 
+                    ? 'bg-teal-600 text-white' 
+                    : 'text-gray-600 hover:text-teal-600'
+                ]"
+              >
+                EN
+              </button>
+              <button
+                @click="setLanguage('he')"
+                :class="[
+                  'px-3 py-1 rounded text-sm font-medium transition duration-300 flex-1',
+                  languageState.currentLanguage === 'he' 
+                    ? 'bg-teal-600 text-white' 
+                    : 'text-gray-600 hover:text-teal-600'
+                ]"
+              >
+                עב
+              </button>
+            </div>
+            
+            <button 
+              class="bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hover:bg-teal-700 flex-1 text-sm"
             >
-              EN
-            </button>
-            <button
-              @click="setLanguage('he')"
-              :class="[
-                'px-3 py-1 rounded text-sm font-medium transition duration-300',
-                languageState.currentLanguage === 'he' 
-                  ? 'bg-teal-600 text-white' 
-                  : isScrolled 
-                    ? 'text-gray-600 hover:text-teal-600' 
-                    : 'text-white hover:text-teal-300'
-              ]"
-            >
-              עב
+              {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
             </button>
           </div>
-          
-          <button 
-            :class="[
-              'font-bold py-2 px-6 rounded-lg transition duration-300 w-full',
-              isScrolled 
-                ? 'bg-white border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white' 
-                : 'bg-transparent border border-white text-white hover:bg-white hover:text-gray-900'
-            ]"
-          >
-            {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
-          </button>
         </div>
       </div>
     </div>
