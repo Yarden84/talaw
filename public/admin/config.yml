@@ -19,6 +19,18 @@ collections:
           - { label: "Subtitle (Hebrew)", name: "subtitle_he", widget: "string" }
           - { label: "Description Text (English)", name: "description_en", widget: "text" }
           - { label: "Description Text (Hebrew)", name: "description_he", widget: "text" }
+          - { label: "Services Section Title (English)", name: "servicesTitle_en", widget: "string", default: "Our Legal Services" }
+          - { label: "Services Section Title (Hebrew)", name: "servicesTitle_he", widget: "string", default: "השירותים המשפטיים שלנו" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Service Title (English)", name: "title_en", widget: "string" }
+              - { label: "Service Title (Hebrew)", name: "title_he", widget: "string" }
+              - { label: "Service Description (English)", name: "description_en", widget: "text" }
+              - { label: "Service Description (Hebrew)", name: "description_he", widget: "text" }
+              - { label: "Service Link", name: "link", widget: "string" }
+              - { label: "Service Icon", name: "icon", widget: "select", options: ["creators", "users", "attorney"] }
       - name: "about"
         label: "About Page"
         file: "content/about.md"
