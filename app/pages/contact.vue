@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <PageHeader 
-      :title="contentData?.title || 'Contact Us'"
-      :description="contentData?.description || 'Ready to discuss your legal needs? Get in touch with us today for a consultation.'"
+      :title="getLocalizedContent(contentData, 'title') || 'Contact Us'"
+      :description="getLocalizedContent(contentData, 'description') || 'Ready to discuss your legal needs? Get in touch with us today for a consultation.'"
     />
 
     <section class="py-16 bg-white min-h-screen">
@@ -11,7 +11,7 @@
           <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-8">
               <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">
-                {{ contentData?.getInTouchTitle || 'Get In Touch' }}
+                {{ getLocalizedContent(contentData, 'getInTouchTitle') || 'Get In Touch' }}
               </h2>
               
               <div class="space-y-6">
@@ -22,7 +22,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 mb-2">Phone</h3>
+                    <h3 class="font-bold text-gray-900 mb-2">{{ getLocalizedContent(contentData, 'phoneLabel') || 'Phone' }}</h3>
                     <p class="text-gray-600">{{ contentData?.phone || '+1 (555) 123-4567' }}</p>
                   </div>
                 </div>
@@ -34,7 +34,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 mb-2">Email</h3>
+                    <h3 class="font-bold text-gray-900 mb-2">{{ getLocalizedContent(contentData, 'emailLabel') || 'Email' }}</h3>
                     <p class="text-gray-600">{{ contentData?.email || 'info@revitalamirlaw.com' }}</p>
                   </div>
                 </div>
@@ -47,8 +47,8 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 mb-2">Office</h3>
-                    <p class="text-gray-600 whitespace-pre-line">{{ contentData?.officeAddress || '123 Legal Street\nSuite 100\nCity, State 12345' }}</p>
+                    <h3 class="font-bold text-gray-900 mb-2">{{ getLocalizedContent(contentData, 'officeLabel') || 'Office' }}</h3>
+                    <p class="text-gray-600 whitespace-pre-line">{{ getLocalizedContent(contentData, 'officeAddress') || '123 Legal Street\nSuite 100\nCity, State 12345' }}</p>
                   </div>
                 </div>
                 
@@ -59,8 +59,8 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 mb-2">Office Hours</h3>
-                    <p class="text-gray-600 whitespace-pre-line">{{ contentData?.officeHours || 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: Closed' }}</p>
+                    <h3 class="font-bold text-gray-900 mb-2">{{ getLocalizedContent(contentData, 'officeHoursLabel') || 'Office Hours' }}</h3>
+                    <p class="text-gray-600 whitespace-pre-line">{{ getLocalizedContent(contentData, 'officeHours') || 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: Closed' }}</p>
                   </div>
                 </div>
               </div>
@@ -79,6 +79,8 @@
 </template>
 
 <script setup>
+import { getLocalizedContent, languageState } from '../stores/language.js'
+
 const { data: apiResponse } = await useAsyncData('contact-content', () => 
   $fetch('/api/contact-content')
 )
@@ -91,9 +93,9 @@ const contentData = computed(() => {
 })
 
 useHead({
-  title: `${contentData.value?.title || 'Contact Us'} - Revital Amir Law`,
+  title: `${getLocalizedContent(contentData.value, 'title') || 'Contact Us'} - Revital Amir Law`,
   meta: [
-    { name: 'description', content: 'Contact Revital Amir Law for legal consultation. Get in touch with our experienced attorney for creators protection, users protection, and power of attorney services.' }
+    { name: 'description', content: getLocalizedContent(contentData.value, 'description') || 'Contact Revital Amir Law for legal consultation. Get in touch with our experienced attorney for creators protection, users protection, and power of attorney services.' }
   ]
 })
 </script> 

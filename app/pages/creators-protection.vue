@@ -1,13 +1,13 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <PageHeader 
-      :title="contentData?.title || 'Creators Protection'"
-      :description="contentData?.description || 'Comprehensive legal protection for content creators, artists, and intellectual property owners.'"
+      :title="getLocalizedContent(contentData, 'title') || 'Creators Protection'"
+      :description="getLocalizedContent(contentData, 'description') || 'Comprehensive legal protection for content creators, artists, and intellectual property owners.'"
     />
 
     <PageContent 
-      :office-vision="contentData?.officeVision || 'Our office is dedicated to protecting the creative rights and intellectual property of artists, writers, musicians, and digital content creators. We understand the unique challenges faced by creative professionals in today\'s digital landscape and provide tailored legal solutions to safeguard your creative works and business interests.'"
-      :services="contentData?.services || []"
+      :office-vision="getLocalizedContent(contentData, 'officeVision') || 'Our office is dedicated to protecting the creative rights and intellectual property of artists, writers, musicians, and digital content creators. We understand the unique challenges faced by creative professionals in today\'s digital landscape and provide tailored legal solutions to safeguard your creative works and business interests.'"
+      :services="getLocalizedServices(contentData) || []"
     />
 
     <Footer />
@@ -15,6 +15,8 @@
 </template>
 
 <script setup>
+import { getLocalizedContent, languageState } from '../stores/language.js'
+
 const { data: apiResponse } = await useAsyncData('creators-protection-content', () => 
   $fetch('/api/creators-protection-content')
 )
@@ -26,10 +28,16 @@ const contentData = computed(() => {
   return null
 })
 
+const getLocalizedServices = (content) => {
+  if (!content) return null
+  const currentLang = languageState.currentLanguage
+  return content[`services_${currentLang}`] || content.services || null
+}
+
 useHead({
-  title: `${contentData.value?.title || 'Creators Protection'} - Revital Amir Law`,
+  title: `${getLocalizedContent(contentData.value, 'title') || 'Creators Protection'} - Revital Amir Law`,
   meta: [
-    { name: 'description', content: contentData.value?.description || 'Comprehensive legal protection for content creators, artists, and intellectual property owners. Expert legal services by Revital Amir.' }
+    { name: 'description', content: getLocalizedContent(contentData.value, 'description') || 'Comprehensive legal protection for content creators, artists, and intellectual property owners. Expert legal services by Revital Amir.' }
   ]
 })
 </script> 

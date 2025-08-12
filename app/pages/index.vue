@@ -33,7 +33,7 @@
             
             <div class="flex flex-col sm:flex-row gap-4">
               <button class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 flex items-center gap-2">
-                Get Assistance
+                {{ languageState.currentLanguage === 'he' ? 'קבלו סיוע' : 'Get Assistance' }}
                 <svg :class="['w-5 h-5', languageState.currentLanguage === 'he' ? 'transform scale-x-[-1]' : '']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-gray-100">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
@@ -56,7 +56,7 @@
                 {{ getLocalizedContent(aboutContent, 'mainParagraph') || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
               <NuxtLink to="/about" :class="['flex items-center space-x-4 pt-4', languageState.currentLanguage === 'he' ? 'space-x-reverse ' : '']">
-                    <span class="text-teal-600 font-semibold">Read More</span>
+                    <span class="text-teal-600 font-semibold">{{ languageState.currentLanguage === 'he' ? 'קראו עוד' : 'Read More' }}</span>
                     <svg :class="['w-5 hs-5 inline-block stroke-teal-600', languageState.currentLanguage === 'he' ? 'transform scale-x-[-1] mr-1' : '']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                     </svg>

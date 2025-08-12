@@ -39,7 +39,7 @@
           </NuxtLink>
         </div>
 
-        <div :class="['hidden md:flex items-center space-x-8', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row']">
+        <div :class="['hidden md:flex items-center', languageState.currentLanguage === 'he' ? 'space-x-reverse space-x-8' : 'space-x-8']">
           <NuxtLink 
             v-for="link in navLinks"
             :key="link.path"
@@ -53,7 +53,7 @@
               currentPath === link.path && !isScrolled ? 'text-teal-300 border-b-2 border-teal-300' : ''
             ]"
           >
-            {{ link.name }}
+            {{ languageState.currentLanguage === 'he' ? link.name_he : link.name_en }}
           </NuxtLink>
         </div>
 
@@ -95,7 +95,7 @@
                 : 'bg-transparent border border-white text-white hover:bg-white hover:text-gray-900'
             ]"
           >
-            Free Consultation
+            {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
           </button>
         </div>
 
@@ -141,7 +141,7 @@
               currentPath === link.path && !isScrolled ? 'text-teal-300' : ''
             ]"
           >
-            {{ link.name }}
+            {{ languageState.currentLanguage === 'he' ? link.name_he : link.name_en }}
           </NuxtLink>
           
           <div :class="['flex items-center justify-center space-x-2 border rounded-lg p-1 mx-4', languageState.currentLanguage === 'he' ? 'flex-row-reverse' : 'flex-row', isScrolled ? 'border-gray-300' : 'border-white/30']">
@@ -181,7 +181,7 @@
                 : 'bg-transparent border border-white text-white hover:bg-white hover:text-gray-900'
             ]"
           >
-            Free Consultation
+            {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
           </button>
         </div>
       </div>
@@ -197,13 +197,13 @@ const isScrolled = ref(false)
 const logoError = ref(false)
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Creators Protection', path: '/creators-protection' },
-  { name: 'Users Protection', path: '/users-protection' },
-  { name: 'Power of Attorney', path: '/power-of-attorney' },
-  { name: 'Articles', path: '/articles' },
-  { name: 'Contact', path: '/contact' }
+  { name_en: 'Home', name_he: 'בית', path: '/' },
+  { name_en: 'About', name_he: 'אודות', path: '/about' },
+  { name_en: 'Creators Protection', name_he: 'הגנה על יוצרים', path: '/creators-protection' },
+  { name_en: 'Users Protection', name_he: 'הגנה על משתמשים', path: '/users-protection' },
+  { name_en: 'Power of Attorney', name_he: 'ייפוי כוח', path: '/power-of-attorney' },
+  { name_en: 'Articles', name_he: 'מאמרים', path: '/articles' },
+  { name_en: 'Contact', name_he: 'צור קשר', path: '/contact' }
 ]
 
 const currentPath = ref('/')

@@ -1,8 +1,11 @@
 ---
-title: "Users Protection"
-description: "Legal guidance and protection for individuals navigating complex legal situations."
-officeVision: "We are committed to protecting individual users' rights in an increasingly complex digital and legal environment. Our practice focuses on empowering individuals with the knowledge and legal support they need to navigate personal legal challenges, privacy concerns, and consumer protection issues."
-services:
+title_en: "Users Protection"
+title_he: "הגנה על משתמשים"
+description_en: "Legal guidance and protection for individuals navigating complex legal situations."
+description_he: "הדרכה משפטית והגנה לאנשים פרטיים הניווטים במצבים משפטיים מורכבים."
+officeVision_en: "We are committed to protecting individual users' rights in an increasingly complex digital and legal environment. Our practice focuses on empowering individuals with the knowledge and legal support they need to navigate personal legal challenges, privacy concerns, and consumer protection issues."
+officeVision_he: "אנו מחויבים להגנה על זכויות המשתמשים הפרטיים בסביבה דיגיטלית ומשפטית מורכבת יותר ויותר. התרגול שלנו מתמקד בהעצמת אנשים פרטיים עם הידע והתמיכה המשפטית שהם צריכים כדי לנווט באתגרים משפטיים אישיים, דאגות פרטיות ובעיות הגנת צרכנים."
+services_en:
   - "Privacy Rights and Data Protection"
   - "Consumer Protection and Fraud Defense"
   - "Digital Rights and Online Safety"
@@ -11,4 +14,13 @@ services:
   - "Personal Legal Document Review"
   - "Harassment and Cyberbullying Protection"
   - "Terms of Service and Privacy Policy Analysis"
+services_he:
+  - "זכויות פרטיות והגנה על מידע"
+  - "הגנת צרכנים והגנה מפני הונאות"
+  - "זכויות דיגיטליות ובטיחות ברשת"
+  - "שחזור ומניעת גניבת זהות"
+  - "פתרון סכסוכי חוזים"
+  - "סקירת מסמכים משפטיים אישיים"
+  - "הגנה מפני הטרדות ובריונות ברשת"
+  - "ניתוח תנאי שירות ומדיניות פרטיות"
 --- 

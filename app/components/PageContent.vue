@@ -4,14 +4,18 @@
       <div class="max-w-4xl mx-auto">
         <div class="space-y-12">
           <div>
-            <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">Our Vision</h2>
+            <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">
+              {{ languageState.currentLanguage === 'he' ? 'החזון שלנו' : 'Our Vision' }}
+            </h2>
             <p class="text-lg text-gray-600 leading-relaxed">
               {{ officeVision }}
             </p>
           </div>
           
           <div v-if="services?.length">
-            <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">Our Services</h2>
+            <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">
+              {{ languageState.currentLanguage === 'he' ? 'השירותים שלנו' : 'Our Services' }}
+            </h2>
             <div class="grid md:grid-cols-2 gap-6">
               <div 
                 v-for="service in services"
@@ -29,6 +33,8 @@
 </template>
 
 <script setup>
+import { languageState } from '../stores/language.js'
+
 defineProps({
   officeVision: {
     type: String,

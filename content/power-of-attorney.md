@@ -1,8 +1,11 @@
 ---
-title: "Power of Attorney"
-description: "Expert assistance with power of attorney documents and estate planning needs."
-officeVision: "Our estate planning practice is built on the understanding that preparing for the future requires careful consideration of your personal values, family dynamics, and financial goals. We provide compassionate and comprehensive legal services to help you protect your assets and ensure your wishes are honored throughout your lifetime and beyond."
-services:
+title_en: "Power of Attorney"
+title_he: "ייפוי כוח"
+description_en: "Expert assistance with power of attorney documents and estate planning needs."
+description_he: "סיוע מומחה במסמכי ייפוי כוח וצרכי תכנון עיזבון."
+officeVision_en: "Our estate planning practice is built on the understanding that preparing for the future requires careful consideration of your personal values, family dynamics, and financial goals. We provide compassionate and comprehensive legal services to help you protect your assets and ensure your wishes are honored throughout your lifetime and beyond."
+officeVision_he: "תרגול תכנון העיזבון שלנו בנוי על ההבנה שהכנה לעתיד דורשת התחשבות קפדנית בערכים האישיים, הדינמיקה המשפחתית והמטרות הכלכליות שלכם. אנו מספקים שירותים משפטיים חמלים ומקיפים כדי לעזור לכם להגן על הנכסים שלכם ולוודא שהרצונות שלכם יכובדו לאורך כל חייכם ומעבר לכך."
+services_en:
   - "General Power of Attorney Preparation"
   - "Durable Power of Attorney for Healthcare"
   - "Financial Power of Attorney Documents"
@@ -11,4 +14,13 @@ services:
   - "Guardianship and Conservatorship"
   - "Trust Formation and Administration"
   - "Will Preparation and Estate Administration"
+services_he:
+  - "הכנת ייפוי כוח כללי"
+  - "ייפוי כוח בר קיימא לבריאות"
+  - "מסמכי ייפוי כוח כלכלי"
+  - "צוואה חיה והנחיות מקדימות"
+  - "ייעוץ תכנון עיזבון"
+  - "אפוטרופסות וקונסרבטוריום"
+  - "הקמה וניהול נאמנות"
+  - "הכנת צוואה וניהול עיזבון"
 --- 

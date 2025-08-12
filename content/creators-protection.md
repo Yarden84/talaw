@@ -1,19 +1,26 @@
 ---
-title: Creators Protection
-description: Comprehensive legal protection for content creators, artists, and
-  intellectual property owners.
-officeVision: Our office is dedicated to protecting the creative rights and
-  intellectual property of artists, writers, musicians, and digital content
-  creators. We understand the unique challenges faced by creative professionals
-  in today's digital landscape and provide tailored legal solutions to safeguard
-  your creative works and business interests.
-services:
-  - Copyright Registration and Protection
-  - Trademark Applications and Enforcement
-  - Digital Content Licensing Agreements
-  - Creator Contract Review and Negotiation
-  - Intellectual Property Infringement Defense
-  - Brand Protection and Monitoring
-  - Creative Partnership Agreements
-  - Platform Terms of Service Review
+title_en: "Creators Protection"
+title_he: "הגנה על יוצרים"
+description_en: "Comprehensive legal protection for content creators, artists, and intellectual property owners."
+description_he: "הגנה משפטית מקיפה ליוצרי תוכן, אמנים ובעלי קניין רוחני."
+officeVision_en: "Our office is dedicated to protecting the creative rights and intellectual property of artists, writers, musicians, and digital content creators. We understand the unique challenges faced by creative professionals in today's digital landscape and provide tailored legal solutions to safeguard your creative works and business interests."
+officeVision_he: "המשרד שלנו מוקדש להגנה על זכויות היוצרים והקניין הרוחני של אמנים, סופרים, מוזיקאים ויוצרי תוכן דיגיטלי. אנו מבינים את האתגרים הייחודיים העומדים בפני אנשי מקצוע יצירתיים בנוף הדיגיטלי של היום ומספקים פתרונות משפטיים מותאמים כדי להגן על היצירות והאינטרסים העסקיים שלכם."
+services_en:
+  - "Copyright Registration and Protection"
+  - "Trademark Applications and Enforcement"
+  - "Digital Content Licensing Agreements"
+  - "Creator Contract Review and Negotiation"
+  - "Intellectual Property Infringement Defense"
+  - "Brand Protection and Monitoring"
+  - "Creative Partnership Agreements"
+  - "Platform Terms of Service Review"
+services_he:
+  - "רישום והגנה על זכויות יוצרים"
+  - "בקשות סימני מסחר ואכיפה"
+  - "הסכמי רישוי תוכן דיגיטלי"
+  - "סקירה ומשא ומתן על חוזי יוצרים"
+  - "הגנה על הפרת קניין רוחני"
+  - "הגנה וניטור מותגים"
+  - "הסכמי שותפות יצירתית"
+  - "סקירת תנאי שירות פלטפורמות"
 ---
