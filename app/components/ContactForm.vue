@@ -78,18 +78,31 @@
       <label for="service" class="block text-sm font-medium text-gray-700 mb-2">
         {{ languageState.currentLanguage === 'he' ? 'שירות נדרש' : 'Service Needed' }}
       </label>
-      <select 
-        id="service" 
-        name="service"
-        v-model="form.service"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300"
-      >
-        <option value="">{{ languageState.currentLanguage === 'he' ? 'בחרו שירות' : 'Select a service' }}</option>
-        <option value="creators-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על יוצרים' : 'Creators Protection' }}</option>
-        <option value="users-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על משתמשים' : 'Users Protection' }}</option>
-        <option value="power-of-attorney">{{ languageState.currentLanguage === 'he' ? 'ייפוי כוח' : 'Power of Attorney' }}</option>
-        <option value="general-consultation">{{ languageState.currentLanguage === 'he' ? 'ייעוץ כללי' : 'General Consultation' }}</option>
-      </select>
+      <div class="relative">
+        <select 
+          id="service" 
+          name="service"
+          v-model="form.service"
+          :class="[
+            'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 appearance-none bg-white',
+            languageState.currentLanguage === 'he' ? 'pl-12 pr-4' : 'pl-4 pr-12'
+          ]"
+        >
+          <option value="">{{ languageState.currentLanguage === 'he' ? 'בחרו שירות' : 'Select a service' }}</option>
+          <option value="creators-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על יוצרים' : 'Creators Protection' }}</option>
+          <option value="users-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על משתמשים' : 'Users Protection' }}</option>
+          <option value="power-of-attorney">{{ languageState.currentLanguage === 'he' ? 'ייפוי כוח' : 'Power of Attorney' }}</option>
+          <option value="general-consultation">{{ languageState.currentLanguage === 'he' ? 'ייעוץ כללי' : 'General Consultation' }}</option>
+        </select>
+        <div :class="[
+          'absolute inset-y-0 flex items-center pointer-events-none',
+          languageState.currentLanguage === 'he' ? 'left-0 pl-3' : 'right-0 pr-3'
+        ]">
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </div>
     </div>
     
     <div class="mb-6">
