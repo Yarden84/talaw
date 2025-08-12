@@ -19,7 +19,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen py-16">
           <div class="space-y-10 text-white">
             <div class="space-y-6">
-              <h1 class="text-8xl tracking-[0.10em] md:text-6xl font-display leading-tight">
+              <h1 :class="['text-8xl tracking-[0.10em] md:text-6xl leading-tight', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
                 {{ getLocalizedContent(homeContent, 'title') || 'Revital Amir Law' }}
               </h1>
               <p class="text-xl text-gray-300 tracking-[0.05em]">
@@ -51,7 +51,7 @@
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
             <div class="w-[50%] space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ getLocalizedContent(aboutContent, 'backgroundTitle') || 'About Revital Amir' }}</h3>
+              <h3 :class="['text-2xl font-bold text-gray-900 mb-6', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">{{ getLocalizedContent(aboutContent, 'backgroundTitle') || 'About Revital Amir' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
                 {{ getLocalizedContent(aboutContent, 'mainParagraph') || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
@@ -76,7 +76,7 @@
 
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+        <h2 :class="['text-3xl font-bold text-center text-gray-900 mb-12', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
           {{ getLocalizedContent(homeContent, 'servicesTitle') || 'Our Legal Services' }}
         </h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -98,7 +98,7 @@
                 <g id="_x32_5_x2C__Contract_x2C__Agreement_x2C__Deal_x2C__Legal_x2C__Obligation_x2C__Document"><g><g><path d="M344.976,420.589c-6.355,1.327-11.27,0.736-14.607-1.764c-4.596-3.444-5.14-9.728-5.142-9.755     c-0.299-4.677-6.331-6.412-9.059-2.589l-4.868,6.815c-3.521-2.394-6.954-4.324-10.285-5.855     c0.207-7.801-2.071-13.91-6.801-18.206c-10.813-9.821-30.172-5.17-30.992-4.968c-2.677,0.663-4.307,3.367-3.648,6.045     c0.657,2.678,3.358,4.314,6.044,3.664c4.158-1.015,16.201-2.511,21.886,2.673c1.849,1.686,2.972,4.101,3.364,7.218     c-13.263-3.255-24.443-0.439-32.585,3.476c-17.683,8.5-13.943,34.967,5.375,38.121c19.674,3.208,31.588-7.999,35.928-27.586     c3.25,1.722,6.519,3.849,9.803,6.382c2.259,1.742,5.485,1.238,7.122-1.053l2.104-2.945c4.739,8.223,13.99,13.138,28.41,10.114     c2.702-0.565,4.436-3.215,3.869-5.918C350.329,421.757,347.685,420.022,344.976,420.589z M265.269,435.595     c-9.681-1.581-11.517-14.978-2.653-19.24c8.914-4.284,18.129-5.072,27.559-2.339C287.274,429.227,280.236,438.04,265.269,435.595     z"/><path d="M381,1H71c-2.762,0-5,2.238-5,5v25H41c-2.762,0-5,2.238-5,5v470c0,2.762,2.238,5,5,5h310c2.762,0,5-2.238,5-5v-25h25     c2.762,0,5-2.238,5-5V6C386,3.238,383.762,1,381,1z M376,471H76V11h300V471z"/><path d="M471,101h-15V91c0-2.762-2.238-5-5-5h-5V71c0-2.762-2.238-5-5-5h-30c-2.762,0-5,2.238-5,5v15h-5c-2.762,0-5,2.238-5,5     v190c0,2.762,2.238,5,5,5c0,16.9,0,135.054,0,150c0,0.776,0.181,1.542,0.528,2.236l20,40c1.838,3.676,7.103,3.682,8.943,0l20-40     c0.348-0.694,0.528-1.46,0.528-2.236c0-14.848,0-132.967,0-150c2.762,0,5-2.238,5-5V111h10v85c0,2.762,2.238,5,5,5s5-2.238,5-5     v-90C476,103.238,473.762,101,471,101z M441,401h-30v-85h30V401z M446,276h-40v-65h40V276z M446,176h-40V96     c14.479,0,25.449,0,40,0V176z"/><path d="M301,56h55c2.762,0,5-2.238,5-5s-2.238-5-5-5h-55c-2.762,0-5,2.238-5,5S298.238,56,301,56z"/><path d="M241,81h115c2.762,0,5-2.238,5-5s-2.238-5-5-5H241c-2.762,0-5,2.238-5,5S238.238,81,241,81z"/><path d="M241,106h115c2.762,0,5-2.238,5-5s-2.238-5-5-5H241c-2.762,0-5,2.238-5,5S238.238,106,241,106z"/><path d="M96,181h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,181,96,181z"/><path d="M96,206h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,206,96,206z"/><path d="M96,231h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,231,96,231z"/><path d="M96,256h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,256,96,256z"/><path d="M96,281h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,281,96,281z"/><path d="M96,306h260c2.762,0,5-2.238,5-5s-2.238-5-5-5H96c-2.762,0-5,2.238-5,5S93.238,306,96,306z"/></g></g></g><g id="Layer_1"/>
               </svg>
             </div>
-            <h3 class="text-xl font-display font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition duration-300">
+            <h3 :class="['text-xl font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition duration-300', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
               {{ getLocalizedContent(service, 'title') }}
             </h3>
             <p class="text-gray-600">

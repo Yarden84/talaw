@@ -10,7 +10,7 @@
         <div class="max-w-6xl mx-auto">
           <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-8">
-              <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">
+              <h2 :class="['text-3xl font-bold text-gray-900 mb-8', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
                 {{ getLocalizedContent(contentData, 'getInTouchTitle') || 'Get In Touch' }}
               </h2>
               

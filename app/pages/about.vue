@@ -10,7 +10,7 @@
         <div class="max-w-6xl mx-auto">
           <div class="flex gap-32 items-center">
             <div class="w-[50%] space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ getLocalizedContent(contentData, 'backgroundTitle') || 'Professional Background' }}</h3>
+              <h3 :class="['text-2xl font-bold text-gray-900 mb-6', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">{{ getLocalizedContent(contentData, 'backgroundTitle') || 'Professional Background' }}</h3>
               <p class="text-gray-600 leading-relaxed text-lg">
                 {{ getLocalizedContent(contentData, 'mainParagraph') || 'Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client\'s unique needs.' }}
               </p>
@@ -30,13 +30,13 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+          <h2 :class="['text-3xl font-bold text-center text-gray-900 mb-12', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
             {{ getLocalizedContent(contentData, 'educationSectionTitle') || 'Education & Experience' }}
           </h2>
           
           <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">
+              <h3 :class="['text-2xl font-bold text-gray-900 mb-4', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
                 {{ getLocalizedContent(contentData?.education, 'title') || 'Education' }}
               </h3>
               <div class="space-y-4">
@@ -53,7 +53,7 @@
             </div>
             
             <div class="space-y-6">
-              <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">
+              <h3 :class="['text-2xl font-bold text-gray-900 mb-4', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
                 {{ getLocalizedContent(contentData?.experience, 'title') || 'Professional Experience' }}
               </h3>
               <div class="space-y-4">

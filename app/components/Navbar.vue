@@ -15,10 +15,9 @@
           <NuxtLink 
             to="/" 
             :class="[
-              'text-2xl font-display font-bold transition duration-300',
-              isScrolled 
-                ? 'text-gray-900 hover:text-teal-600' 
-                : 'text-white hover:text-teal-300'
+              'text-2xl font-bold transition duration-300',
+              languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display',
+              isScrolled ? 'text-gray-900' : 'text-white'
             ]"
           >
             <img 

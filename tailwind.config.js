@@ -49,7 +49,8 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['Montserrat', 'system-ui', 'sans-serif'],
-        'display': ['Playfair Display', 'Georgia', 'serif'],
+        'display': ['Frank Ruhl Libre', 'Georgia', 'serif'],
+        'display-he': ['Varela Round', 'system-ui', 'sans-serif'],
         'body': ['Montserrat', 'system-ui', 'sans-serif']
       }
     },

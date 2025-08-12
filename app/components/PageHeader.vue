@@ -4,7 +4,7 @@
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
+        <h1 :class="['text-4xl md:text-5xl font-bold mb-6 text-white', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
           {{ title }}
         </h1>
         <p class="text-xl text-gray-200 leading-relaxed">
@@ -16,6 +16,8 @@
 </template>
 
 <script setup>
+import { languageState } from '../stores/language.js'
+
 defineProps({
   title: {
     type: String,

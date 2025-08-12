@@ -4,7 +4,7 @@
       <div class="max-w-4xl mx-auto">
         <div class="space-y-20">
           <div>
-            <h2 class="text-3xl font-display font-bold text-gray-900 mb-8">
+            <h2 :class="['text-3xl font-bold text-gray-900 mb-8', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
               {{ languageState.currentLanguage === 'he' ? 'החזון שלנו' : 'Our Vision' }}
             </h2>
             <p class="text-lg text-gray-600 leading-8">
@@ -13,7 +13,7 @@
           </div>
           
           <div v-if="services?.length">
-            <h2 class="text-3xl font-display font-bold text-gray-900 mb-10">
+            <h2 :class="['text-3xl font-bold text-gray-900 mb-8', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
               {{ languageState.currentLanguage === 'he' ? 'השירותים שלנו' : 'Our Services' }}
             </h2>
             <div class="grid md:grid-cols-2 gap-10">
