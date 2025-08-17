@@ -1,6 +1,6 @@
 ---
 title_en: Revital Amir Law Firm
-title_he: משרד עורכי דין רויטל עמיר
+title_he: רויטל עמיר, משרד עורכי דין
 subtitle_en: Professional Legal Services
 subtitle_he: תחומי עיסוק עיקריים
 description_en: |
@@ -8,13 +8,14 @@ description_en: |
   Performers Rights
   Users Rights In Content, In works and Performances
   Durable Power Of Attorney
+  Commercial Law
 description_he: |-
   זכויות יוצרים
   זכויות אמנים מבצעים
   זכויות משתמשים בתוכן, ביצירות ובביצועים
   יפוי כח מתמשך
   משפט מסחרי
-servicesTitle_en: Copyrights
+servicesTitle_en: Our Legal Services
 servicesTitle_he: השירותים המשפטיים שלנו
 services:
   - title_en: Creators Protection
