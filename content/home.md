@@ -1,5 +1,5 @@
 ---
-title_en: Revital Amir Law
+title_en: Revital Amir Law Firm
 title_he: משרד עורכי דין רויטל עמיר
 subtitle_en: Professional Legal Services
 subtitle_he: שירותים משפטיים מקצועיים
