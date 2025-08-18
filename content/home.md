@@ -20,7 +20,26 @@ servicesTitle_he: השירותים המשפטיים שלנו
 services:
   - title_en: COPY RIGHTS AND PERFORMERS RIGHTS
     title_he: זכויות יוצרים וזכויות מבצעים
-    description_en: ננננננ
+    description_en: >+
+      The Firm's Vision:
+
+      Our legal work is based on a combination of protecting copyright and performance rights on one hand, and protecting legal and fair use of content on the other
+
+
+      To support and encourage creation but ensure the ability to use It,   fairly and legally.
+
+
+      The world of intellectual property is based on an inherent tension:
+
+      On the one hand, it is important to incentivize original creation and protect the fruits of the labor and investment of authors and performing artists so that they can continue to create;
+
+      On the other hand, it is necessary to ensure that the boundaries of protection do not become a monopoly, which stifles inspiration, innovation and blocks the ability to use existing culture to create new culture.
+
+
+      Our firm is committed to promoting a responsible balance between the Author's right and the right to access the work - between the artist's interest and the public interest.
+
+      Our experience on both sides of the fence - both authors/Performers and users - allows us to deeply understand the client's needs and provide them with precise, responsible and creative solutions.
+
     description_he: >
       חזון המשרד:
 
