@@ -85,17 +85,6 @@
               עב
             </button>
           </div>
-          
-          <button 
-            :class="[
-              'font-bold py-2 px-6 rounded-lg transition duration-300',
-              isScrolled 
-                ? 'bg-white border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white' 
-                : 'bg-transparent border border-white text-white hover:bg-white hover:text-gray-900'
-            ]"
-          >
-            {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
-          </button>
         </div>
 
         <div class="md:hidden">
@@ -173,12 +162,6 @@
                 עב
               </button>
             </div>
-            
-            <button 
-              class="bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hover:bg-teal-700 flex-1 text-sm"
-            >
-              {{ languageState.currentLanguage === 'he' ? 'ייעוץ חינם' : 'Free Consultation' }}
-            </button>
           </div>
         </div>
       </div>
@@ -198,7 +181,7 @@ const navLinks = [
   { name_en: 'About', name_he: 'אודות', path: '/about' },
   { name_en: 'Creators Protection', name_he: 'הגנה על יוצרים', path: '/creators-protection' },
   { name_en: 'Users Protection', name_he: 'הגנה על משתמשים', path: '/users-protection' },
-  { name_en: 'Power of Attorney', name_he: 'ייפוי כוח', path: '/power-of-attorney' },
+  { name_en: 'Power of Attorney', name_he: 'ייפוי כוח מתמשך', path: '/power-of-attorney' },
   { name_en: 'Articles', name_he: 'מאמרים', path: '/articles' },
   { name_en: 'Contact', name_he: 'צור קשר', path: '/contact' }
 ]

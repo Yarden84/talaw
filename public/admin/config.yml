@@ -118,7 +118,7 @@ collections:
         file: "content/power-of-attorney.md"
         fields:
           - { label: "Page Title (English)", name: "title_en", widget: "string", default: "Power of Attorney" }
-          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "ייפוי כוח" }
+          - { label: "Page Title (Hebrew)", name: "title_he", widget: "string", default: "ייפוי כוח מתמשך" }
           - { label: "Page Description (English)", name: "description_en", widget: "text" }
           - { label: "Page Description (Hebrew)", name: "description_he", widget: "text" }
           - { label: "Office Vision (English)", name: "officeVision_en", widget: "text" }

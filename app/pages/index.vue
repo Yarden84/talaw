@@ -32,8 +32,11 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4">
-              <button class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 flex items-center gap-2">
-                {{ languageState.currentLanguage === 'he' ? 'קבלו סיוע' : 'Get Assistance' }}
+              <button 
+                @click="handleGetAssistance"
+                class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 flex items-center gap-2"
+              >
+                {{ languageState.currentLanguage === 'he' ? 'צרו קשר' : 'Get Assistance' }}
                 <svg :class="['w-5 h-5', languageState.currentLanguage === 'he' ? 'transform scale-x-[-1]' : '']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
@@ -147,6 +150,24 @@ const aboutSection = ref(null)
 const servicesSection = ref(null)
 const contactSection = ref(null)
 
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+         window.innerWidth <= 768
+}
+
+const handleGetAssistance = () => {
+  if (isMobile()) {
+    window.location.href = 'tel:+972506666035'
+  } else {
+    if (contactSection.value) {
+      contactSection.value.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+}
+
 onMounted(() => {
   const observerOptions = {
     threshold: 0.1,
@@ -185,9 +206,9 @@ const defaultServices = [
   },
   {
     title_en: "Power of Attorney",
-    title_he: "ייפוי כוח",
+    title_he: "ייפוי כוח מתמשך",
     description_en: "Expert assistance with power of attorney documents and estate planning needs.",
-    description_he: "סיוע מומחה במסמכי ייפוי כוח וצרכי תכנון עיזבון.",
+    description_he: "סיוע מומחה במסמכי ייפוי כוח מתמשך וצרכי תכנון עיזבון.",
     link: "/power-of-attorney",
     icon: "attorney"
   }

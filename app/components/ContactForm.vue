@@ -136,7 +136,7 @@
             <option value="">{{ languageState.currentLanguage === 'he' ? 'בחרו שירות' : 'Select a service' }}</option>
             <option value="creators-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על יוצרים' : 'Creators Protection' }}</option>
             <option value="users-protection">{{ languageState.currentLanguage === 'he' ? 'הגנה על משתמשים' : 'Users Protection' }}</option>
-            <option value="power-of-attorney">{{ languageState.currentLanguage === 'he' ? 'ייפוי כוח' : 'Power of Attorney' }}</option>
+            <option value="power-of-attorney">{{ languageState.currentLanguage === 'he' ? 'ייפוי כוח מתמשך' : 'Power of Attorney' }}</option>
             <option value="general-consultation">{{ languageState.currentLanguage === 'he' ? 'ייעוץ כללי' : 'General Consultation' }}</option>
           </select>
           <div :class="[

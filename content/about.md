@@ -6,7 +6,7 @@ description_he: "אשת מקצוע משפטית מסורה עם ניסיון ר�
 backgroundTitle_en: "Professional Background"
 backgroundTitle_he: "רקע מקצועי"
 mainParagraph_en: "Revital Amir is a dedicated legal professional with extensive experience in protecting the rights and interests of creators, users, and individuals. With a passion for justice and a commitment to excellence, Revital provides comprehensive legal solutions tailored to each client's unique needs."
-mainParagraph_he: "רויטל עמיר היא אשת מקצוע משפטית מסורה עם ניסיון רב בהגנה על זכויות ואינטרסים של יוצרים, משתמשים ואנשים פרטיים. עם תשוקה לצדק ומחויבות למצוינות, רויטל מספקת פתרונות משפטיים מקיפים המותאמים לצרכים הייחודיים של כל לקוח. אני מתמחה בהגנה על יוצרים, הגנת משתמשים וייפוי כוח, ומביאה גישה אישית וחמה לכל מקרה."
+mainParagraph_he: "רויטל עמיר היא אשת מקצוע משפטית מסורה עם ניסיון רב בהגנה על זכויות ואינטרסים של יוצרים, משתמשים ואנשים פרטיים. עם תשוקה לצדק ומחויבות למצוינות, רויטל מספקת פתרונות משפטיים מקיפים המותאמים לצרכים הייחודיים של כל לקוח. אני מתמחה בהגנה על יוצרים, הגנת משתמשים וייפוי כוח מתמשך, ומביאה גישה אישית וחמה לכל מקרה."
 portraitImage: "/lawyer-portrait.jpg"
 portraitAlt_en: "Revital Amir - Professional Attorney"
 portraitAlt_he: "רויטל עמיר - עורכת דין מקצועית"
@@ -42,7 +42,7 @@ experience:
       - "הגנה על קניין רוחני"
       - "זכויות יוצרים וחוק זכויות יוצרים"
       - "הגנת משתמשים וזכויות פרטיות"
-      - "תכנון עיזבון וייפוי כוח"
+      - "תכנון עיזבון וייפוי כוח מתמשך"
       - "דיני חוזים ומשא ומתן"
   memberships:
     title_en: "Professional Memberships"
