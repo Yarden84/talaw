@@ -26,14 +26,6 @@
               class="w-[150px] h-auto"
               @error="logoError = true"
             />
-            <!-- <img 
-              v-else-if="!isScrolled && !logoError"
-              src="/art-logo-white.svg" 
-              alt="Revital Amir Law Logo" 
-              class="w-[150px] h-auto"
-              @error="logoError = true"
-            /> -->
-            <!-- <span v-else>Revital Amir Law</span> -->
           </NuxtLink>
         </div>
 
