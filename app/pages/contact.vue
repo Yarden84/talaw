@@ -93,22 +93,22 @@ const contactItems = computed(() => [
     value: contentData.value?.email || 'info@revitalamirlaw.com',
     iconPath: 'M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     multiline: false
-  },
-  {
-    key: 'office',
-    label: getLocalizedContent(contentData.value, 'officeLabel') || 'Office',
-    value: getLocalizedContent(contentData.value, 'officeAddress') || '123 Legal Street\nSuite 100\nCity, State 12345',
-    iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
-    secondPath: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z',
-    multiline: true
-  },
-  {
-    key: 'hours',
-    label: getLocalizedContent(contentData.value, 'officeHoursLabel') || 'Office Hours',
-    value: getLocalizedContent(contentData.value, 'officeHours') || 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: Closed',
-    iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-    multiline: true
   }
+  // {
+  //   key: 'office',
+  //   label: getLocalizedContent(contentData.value, 'officeLabel') || 'Office',
+  //   value: getLocalizedContent(contentData.value, 'officeAddress') || '123 Legal Street\nSuite 100\nCity, State 12345',
+  //   iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
+  //   secondPath: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+  //   multiline: true
+  // },
+  // {
+  //   key: 'hours',
+  //   label: getLocalizedContent(contentData.value, 'officeHoursLabel') || 'Office Hours',
+  //   value: getLocalizedContent(contentData.value, 'officeHours') || 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: Closed',
+  //   iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  //   multiline: true
+  // }
 ])
 
 useHead({
