@@ -15,11 +15,11 @@
       }
 
       .st4 {
-        fill:#111827;
+        fill:#857550;
       }
 
       .st1 {
-        stroke: #111827;
+        stroke: #857550;
         stroke-width: 1.13px;
       }
 
