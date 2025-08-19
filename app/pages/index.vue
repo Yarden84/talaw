@@ -86,9 +86,9 @@
         </h2>
         <div class="grid md:grid-cols-3 gap-8">
           <NuxtLink 
-            v-for="service in homeContent?.services || defaultServices"
-            :key="service.link"
-            :to="service.link"
+            v-for="(service, index) in homeContent?.services || defaultServices"
+            :key="index"
+            :to="defaultServices[index].link"
             class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 group"
           >
             <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-teal-100 transition duration-300">
@@ -106,7 +106,7 @@
             <h3 :class="['text-xl font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition duration-300', languageState.currentLanguage === 'he' ? 'font-display-he' : 'font-display']">
               {{ getLocalizedContent(service, 'title') }}
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600 line-clamp-4">
               {{ getLocalizedContent(service, 'description') }}
             </p>
           </NuxtLink>

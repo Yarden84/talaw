@@ -55,7 +55,6 @@ services:
       המשרד שלנו מחוייב לקדם איזון אחראי בין הזכות של היוצר לבין הזכות לגשת ליצירה - בין אינטרס האמן לאינטרס הציבור.
 
       הניסיון שלנו בשני צדי המתרס - הן של יוצרים ומבצעים והן של משתמשים - מאפשר לנו להבין לעומק את צרכי הלקוח ולספק לו פתרונות מדוייקים, אחראיים ויצירתיים.
-    link: /users-protectionההההההה
     icon: users
   - title_en: "Copyrights  and Performers Rights Protection "
     title_he: הגנה על זכויות יוצרים וזכויות מבצעים
@@ -93,7 +92,6 @@ services:
       In today's digital space, the rights of authors and performers can easily be violated - whether it is unauthorized use of works, copyright infringement or non-payment of royalties. 
 
       We work to ensure that our clients have full legal protection and that their rights are respected in the public domain.
-    link: ההההה
     icon: creators
   - title_en: Durable Power Of Attorney
     title_he: ייפוי כח מתמשך
@@ -104,6 +102,5 @@ services:
       יפוי כח מתמשך הוא לא טופס סטנדרטי - אלא תהליך אישי, עמוק ורגיש שמצריך הקשבה אמיתית והבנה של המורכבויות האישיות של האדם.
 
       אני מביאה איתי ניסיון חיים שמתחבר להבנה אמיתית של הצרכים והדינמיקה המשפחתית, שמאפשרים לי להתבונן בתמונה המלאה, לזהות צרכים, להתמודד עם מורכבויות, כל זאת עם הרבה סבלנות על מנת לעזור לקבל החלטות ברוגע ובבטחון, בלי לחץ בלי שעון שמתקתק.
-    link: הההההההה
     icon: users
 ---
